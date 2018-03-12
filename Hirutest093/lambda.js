@@ -6,7 +6,8 @@ exports.handler = function (event, context, callback) {
 		'Bucket': "test.sample.ohio"
 	}).promise()
 		.then(data => {
-			console.log(data);           // successful response
+			console.log(data);
+			console.log('Get bucket location was success');           // successful response
 			/*
 			data = {
 				LocationConstraint: "us-west-2"
@@ -14,7 +15,9 @@ exports.handler = function (event, context, callback) {
 			*/
 		})
 		.catch(err => {
-			console.log(err, err.stack); // an error occurred
+			console.log('an error occured');
+			console.log(err, err.stack);
+			 // an error occurred
 		});
 
 	s3.deleteObject({
@@ -22,15 +25,18 @@ exports.handler = function (event, context, callback) {
 		'Key': "sample"
 	}).promise()
 		.then(data => {
-			console.log(data);           // successful response
+			console.log('Delete object was successfull');
+			console.log(data); 
+			          // successful response
 			/*
 				data = {}
 			*/
 		})
 		.catch(err => {
+			console.log('An error occured');
 			console.log(err, err.stack); // an error occurred
 		});
 
 
-	callback(null, 'Successfully executed');
+	//callback(null, 'Successfully executed');
 }
