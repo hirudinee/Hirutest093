@@ -3,7 +3,7 @@ const s3 = new AWS.S3();
 exports.handler = function (event, context, callback) {
 	s3.getObject({
 		'Bucket': "test.sample.ohio",
-		'Key': "001.png"
+		'Key': "002.png"
 	}).promise()
 		.then(data => {
 			console.log(data);           // successful response
